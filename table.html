@@ -1,0 +1,25 @@
+<canvas width=600px height=600px></canvas>
+<script>
+    let canvas = document.getElementsByTagName('canvas')[0];
+    let context = canvas.getContext('2d');
+    for(let i=0;i<100;i++){
+        let x = 0 + 10 * i;
+        let y = 0;
+        let m = x;
+        let n = 600;
+        context.moveTo(x,y)
+        context.lineTo(m,n)
+    }
+    for(let i=0;i<100;i++){
+        let x = 0;
+        let y = 0 + 10 * i;
+        let m = 600;
+        let n = y;
+        context.moveTo(x,y);
+        context.lineTo(m,n);
+    }
+
+    context.strokeStyle='blue';
+    context.stroke();
+    
+</script>

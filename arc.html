@@ -1,0 +1,30 @@
+<canvas></canvas>
+
+<script>
+    let canvas = document.getElementsByTagName('canvas')[0];
+    canvas.width=900;
+    canvas.height=900;
+    let ctx = canvas.getContext('2d');
+    let items = [
+        {'pen':0.2,'title':'sleep','color':'blueviolet'},
+        {'pen':0.15,'title':'study','color':'red'},
+        {'pen':0.3,'title':'other','color':'pink'},
+        {'pen':0.35,'title':'eat','color':'green'}
+    ];
+    let beginDraw = - Math.PI / 2;
+    let x0 = 500, y0 = 500, radius = 200;
+    for(let i = 0;i < items.length;i++){
+        console.log(items[i].title);
+        ctx.beginPath();
+        ctx.moveTo(x0,y0);
+        let beginAngle = beginDraw;
+        let endAngle = beginAngle + Math.PI * 2 * items[i].pen;
+        ctx.arc(x0,y0,radius,beginAngle,endAngle,false);
+        ctx.closePath();
+        ctx.fillStyle = items[i].color;
+        ctx.strokeStyle = items[i].color;
+        ctx.fill();
+        ctx.stroke();
+        beginDraw = endAngle;
+    }
+</script>
