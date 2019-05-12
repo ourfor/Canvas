@@ -9,7 +9,7 @@
         {'pen':0.2,'title':'sleep','color':'blueviolet'},
         {'pen':0.15,'title':'study','color':'red'},
         {'pen':0.3,'title':'other','color':'pink'},
-        {'pen':0.35,'title':'eat','color':'green'}
+        {'pen':0.35,'title':'eat','color':'yellow'}
     ];
     let beginDraw = - Math.PI / 2;
     let x0 = 500, y0 = 500, radius = 200;
@@ -25,6 +25,11 @@
         ctx.strokeStyle = items[i].color;
         ctx.fill();
         ctx.stroke();
+        let titleX = (radius + 30) * Math.cos((beginAngle + endAngle)/2);
+        let titleY = (radius + 30) * Math.sin((beginAngle + endAngle)/2);
+        ctx.font = '30px 微软雅黑';
+        ctx.strokeText(items[i].title,x0+titleX,y0+titleY);
+        ctx.fillText(items[i].title,x0+titleX,y0+titleY);
         beginDraw = endAngle;
     }
 </script>
