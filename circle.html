@@ -1,0 +1,50 @@
+<canvas></canvas>
+
+<script>
+    let canvas = document.getElementsByTagName('canvas')[0];
+    let ctx = canvas.getContext('2d');
+    canvas.width = 800;
+    canvas.height = 800;
+    let items = [
+        {
+            'value': 0.25,
+            'color': 'blueviolet',
+            'title': 'sleep'
+        },
+        {
+            'value': 0.3,
+            'color': 'yellow',
+            'title': 'study'
+        },
+        {
+            'value': 0.2,
+            'color': 'red',
+            'title': 'video'
+        },
+        {
+            'value': 0.25,
+            'color': 'green',
+            'title': 'other'
+        }
+    ];
+
+    let oX = 400, oY = 400, startAngle = -Math.PI / 2;  
+    let radius = 300;
+    for(let i=0;i<items.length;i++){
+        let beginAngle = startAngle;
+        let endAngle = beginAngle + Math.PI * 2 * items[i].value;
+        ctx.beginPath();
+        ctx.moveTo(oX,oY);
+        ctx.arc(oX,oY,radius,beginAngle,endAngle);
+        ctx.closePath();
+        ctx.fillStyle = items[i].color;
+        ctx.strokeStyle = items[i].color;
+        ctx.fill();
+        ctx.stroke();
+        let titleX = oX + (radius + 60) * Math.cos((beginAngle + endAngle) / 2) ,
+            titleY = oY + (radius + 60) * Math.sin((beginAngle + endAngle) / 2);
+        ctx.font = '29px 微软雅黑';
+        ctx.fillText(items[i].title,titleX,titleY);
+        startAngle = endAngle;
+    }
+</script>

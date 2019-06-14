@@ -1,0 +1,51 @@
+<canvas></canvas>
+
+<script>
+    let canvas = document.getElementsByTagName('canvas')[0];
+    canvas.width = 900;
+    canvas.height = 900;
+    let ctx = canvas.getContext('2d');
+    let img = new Image();
+    img.src = 'image/timg.jpeg';
+    let favicon = new Image();
+    favicon.src = 'image/favicon.ico';
+    // width: 670 height: 447 5 行 3 列
+    // 135 149
+    
+
+    let frameIndex = 0;
+    let posAngle = 0;
+    img.onload = function(){
+        setInterval(
+            function(){
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                
+
+                ctx.beginPath();
+                ctx.arc(400,400,310,0,Math.PI * 2);
+                ctx.closePath();
+                ctx.fillStyle = 'red';
+                ctx.fill();
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.arc(400,400,300,0,Math.PI * 2);
+                ctx.closePath();
+                ctx.fillStyle = 'white';
+                ctx.fill();
+                ctx.stroke();
+                
+                ctx.beginPath();
+                ctx.drawImage(img,frameIndex * 134,149*2,134,149,300,300,134,149);
+                frameIndex = (frameIndex + 1) % 5;
+                ctx.closePath();
+
+                let radius = 305;
+                let oX = 360 + radius * Math.cos(posAngle);
+                let oY = 360 + radius * Math.sin(posAngle);
+                ctx.drawImage(favicon,oX,oY,80,80);
+                posAngle += 0.05;
+            }
+            ,1000 / 10)
+    }
+</script>
