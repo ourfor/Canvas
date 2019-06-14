@@ -1,0 +1,28 @@
+<script src="lib/konva.js"></script>
+<div id="stage"></div>
+
+<script>
+    let stage = new Konva.Stage({
+        container: "stage",
+        width: 800,
+        height: 800
+    });
+
+    let layer = new Konva.Layer();
+    stage.add(layer);
+
+    let height = 1/12 * stage.height();
+    let maxWidth = 3/4 * stage.width();
+
+    let innerRect = new Konva.Rect({
+        x: 200,
+        y: 200,
+        width: 800,
+        height: height,
+        opacity: .7,
+        fill: "blue"
+    });
+
+    layer.add(innerRect);
+    layer.draw();
+</script>
