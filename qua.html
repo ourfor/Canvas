@@ -1,0 +1,10 @@
+<canvas width="900px" height="900px"></canvas>
+<script>
+    let canvas = document.getElementsByTagName("canvas")[0];
+    let ctx = canvas.getContext("2d");
+    ctx.beginPath();
+    ctx.moveTo(400,400);
+    ctx.quadraticCurveTo(600,600,800,900);
+    ctx.stroke();
+    ctx.closePath();
+</script>
