@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>面向对象绘制矩形</title>
+        <script src="lib/konva.js" ></script>
+        <style>
+            body,html{
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="stage"></div>
+
+        <script>
+            let stage = new Konva.Stage({
+                container: "stage",
+                width: window.innerWidth,
+                height: window.innerHeight
+            });
+
+            let layer = new Konva.Layer();
+            stage.add(layer);
+
+            let rect = new Konva.Rect({
+                width: 400,
+                height: 400,
+                fill: "blue",
+                stroke: "yellow",
+                strokeWidth: 4,
+                draggable: true
+            });
+
+            layer.add(rect);
+            layer.draw();
+
+            rect.on("mouseover",function(){
+                document.body.style.cursor = "pointer";
+            });
+
+            rect.on("mouseout",function(){
+                document.body.style.cursor = "default";
+            });
+
+            let arc = new Konva.Arc({
+                x: 400,
+                y: 400,
+                innerRadius: 0,
+                outerRadius: 200,
+                scaleX: .7,
+                scaleY: .7,
+                angle: 270,
+                fill: "red",
+                strokeWidth: 2,
+                draggable: true
+            });
+
+            layer.add(arc);
+            layer.draw();
+
+            let text = new Konva.Text({
+                text: "Have a good time!",
+                fontSize: 58,
+                fontFamily: "Calibri",
+                align: "center",
+                fill: "green",
+                x: 400,
+                y: 400,
+                stroke: "red",
+                draggable: true
+            });
+
+            layer.add(text);
+            layer.draw();
+
+            let crPointer = function(){
+                document.body.style.cursor = "pointer";
+            };
+
+            let crDefault = function(){
+                document.body.style.cursor = "default";
+            };
+            text.on("mouseover",crPointer);
+            text.on("mouseout",crDefault);
+
+
+        </script>
+    </body>
+</html>

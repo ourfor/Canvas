@@ -1,0 +1,25 @@
+{
+  "name": "canvas",
+  "version": "1.0.0",
+  "description": "练习Canvas",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ourfor/Canvas.git"
+  },
+  "author": "ourfor",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ourfor/Canvas/issues"
+  },
+  "homepage": "https://github.com/ourfor/Canvas#readme",
+  "dependencies": {
+    "tedious": "^6.2.0"
+  }
+}
